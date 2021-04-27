@@ -1,5 +1,3 @@
-
-
 var map = L.map("map", {
   center: [50.67, 29.79],
   zoom: 3,
@@ -22,71 +20,61 @@ L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?acce
 d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson").then(function(response) {
   var earthquakes = response.features;
   console.log(earthquakes)
-  // var markers = L.markerClusterGroup();
-  L.geoJson(response).addTo(map);
-  for (var index = 0; index < earthquakes.length; index++) {
+
+    for (var index = 0; index < earthquakes.length; index++) {
+      var color = "";
+        if (earthquakes[index].geometry.coordinates[2] > 90) {
+          // color = "red";
+          color = "rgb(255,0,0)";
+        }
+        else if (earthquakes[index].geometry.coordinates[2] > 70) {
+          // color = "orange";
+          color = "rgb(225,100,0)";
+        }
+        else if (earthquakes[index].geometry.coordinates[2] > 50) {
+          // color = "rgb(255,218,185)";
+          color = "rgb(200,200,0)";
+        }
+        else if (earthquakes[index].geometry.coordinates[2] > 30) {
+          // color = "lightblue";
+          color = "rgb(255,255,0)";
+        }
+        else if (earthquakes[index].geometry.coordinates[2] > 10) {
+          // color = "yellow";
+          color = "rgb(150,255,0)";
+        }
+        else {
+          // color = "green";
+          color = "rgb(0,255,0)";
+        }
+
     var earthquake = earthquakes[index].geometry.coordinates;
-    console.log(earthquake[0], earthquake[1]);
-    L.circleMarker([earthquake[0], earthquake[1]]).addTo(map)
-    .bindPopup("EARTHQUAKEEEE"); }
-
-    geojson = L.choropleth(data, {
-
-      // Define what  property in the features to use
-      valueProperty: "MHI2016",
-
-      // Set color scale
-      scale: ["#ffffb2", "#b10026"],
-
-      // Number of breaks in step range
-      steps: 10,
-
-      // q for quartile, e for equidistant, k for k-means
-      mode: "q",
-      style: {
-        // Border color
-        color: "#fff",
-        weight: 1,
-        fillOpacity: 0.8
-      },
-
-      // Binding a pop-up to each layer
-      onEachFeature: function(feature, layer) {
-        layer.bindPopup("Zip Code: " + feature.properties.ZIP + "<br>Median Household Income:<br>" +
-          "$" + feature.properties.MHI2016);
-      }
-    }).addTo(map);
+    L.circleMarker([earthquake[0], earthquake[1]], {
+      fillColor: color,
+      radius: earthquakes[index].properties.mag * 20000,
+      fillOpacity: 0.75,
+      colorOpacity: 0.75,
+      color: "black",
+      weight: 0.5 })
+      .bindPopup("EARTHQUAKEEEE").addTo(map); }
 
 
+      var legend = L.control({ position: "topright" });
 
-    // Set up the legend
-    var legend = L.control({ position: "bottomright" });
-    legend.onAdd = function() {
-      var div = L.DomUtil.create("div", "info legend");
-      var limits = geojson.options.limits;
-      var colors = geojson.options.colors;
-      var labels = [];
+      legend.onAdd = function(map) {
+        var div = L.DomUtil.create("div", "legend");
+        div.innerHTML += "<h4>Depth</h4>";
+        div.innerHTML += '<i style="background: rgb(0,255,0)"></i><span>-10 - 10</span><br>';
+        div.innerHTML += '<i style="background: rgb(150,255,0)"></i><span>10-30</span><br>';
+        div.innerHTML += '<i style="background: rgb(255,255,0)"></i><span>30-50</span><br>';
+        div.innerHTML += '<i style="background: rgb(200,200,0)"></i><span>50-70</span><br>';
+        div.innerHTML += '<i style="background: rgb(225,100,0)"></i><span>70-90</span><br>';
+        div.innerHTML += '<i style="background: rgb(255,0,0)"></i><span>90+</span><br>';
 
-      // Add min & max
-      var legendInfo = "<h1>Median Income</h1>" +
-        "<div class=\"labels\">" +
-          "<div class=\"min\">" + limits[0] + "</div>" +
-          "<div class=\"max\">" + limits[limits.length - 1] + "</div>" +
-        "</div>";
+        return div;
+      };
 
-      div.innerHTML = legendInfo;
-
-      limits.forEach(function(limit, index) {
-        labels.push("<li style=\"background-color: " + colors[index] + "\"></li>");
-      });
-
-      div.innerHTML += "<ul>" + labels.join("") + "</ul>";
-      return div;
-    };
-
-    // Adding legend to the map
-    legend.addTo(map);
-
+      legend.addTo(map);
 
 
 
