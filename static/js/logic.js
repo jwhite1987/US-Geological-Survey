@@ -1,6 +1,6 @@
 var map = L.map("map", {
-  center: [50.67, 29.79],
-  zoom: 3,
+  center: [37, -95],
+  zoom: 4,
   attributionControl: false
 });
 
@@ -12,9 +12,8 @@ L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?acce
   accessToken: API_KEY
 }).addTo(map);
 
-// L.control.layers(baseMaps, overlayMaps, {
-//   collapsed: false
-// }).addTo(map);
+
+
 
 
 d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson").then(function(response) {
@@ -44,22 +43,22 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geo
           color = "rgb(150,255,0)";
         }
         else {
-          // color = "green";
-          color = "rgb(0,255,0)";
+          color = "green";
         }
+
 
     var earthquake = earthquakes[index].geometry.coordinates;
     L.circleMarker([earthquake[0], earthquake[1]], {
-      fillColor: color,
-      radius: earthquakes[index].properties.mag * 20000,
       fillOpacity: 0.75,
       colorOpacity: 0.75,
-      color: "black",
-      weight: 0.5 })
-      .bindPopup("EARTHQUAKEEEE").addTo(map); }
+      color: color,
+      fillColor: color,
+      weight: 0.5,
+      radius: earthquakes[index].properties.mag * 2 })
+      .bindPopup("<h2> Location: " + earthquakes[index].properties.place + "</h2> <hr> <h3> Depth: " + earthquakes[index].geometry.coordinates[2] + "</h3> <h3> Magnitude: " + earthquakes[index].properties.mag + "</h3> <h3> Date: " + new Date(earthquakes[index].properties.time) +  "</h3>").addTo(map);
 
 
-      var legend = L.control({ position: "topright" });
+      var legend = L.control({position: 'bottomright'});
 
       legend.onAdd = function(map) {
         var div = L.DomUtil.create("div", "legend");
@@ -74,10 +73,4 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geo
         return div;
       };
 
-      legend.addTo(map);
-
-
-
-
-
-});
+      legend.addTo(map);}})
