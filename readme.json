@@ -1,0 +1,38 @@
+{
+    "project_name": "Leaflet and the USGS",
+    "version": "1.0",
+    "description": "Using the USGS Earthquake Dataset, collected from a JSON file located on http://earthquake.usgs.gov, create visualizations and data markers using Leaflet.",
+    "snap_store_name": null,
+    "icon_src": null,
+    "screenshot_src": null,
+    "author": "Jimmy White",
+    "github_username": "jimmywhite1987",
+    "author_linkedin_username": "jimmywhite1987",
+    "author_twitter_username": null,
+    "author_website": "http://www.jwhiteanalytics.com",
+    "homepage": "https://jimmywhite1987.github.io/Leaflet-and-the-USGS/",
+    "project_demo_url": "https://jimmywhite1987.github.io/Leaflet-and-the-USGS/",
+    "repository_url": null,
+    "install_command": [
+        null
+    ],
+    "usage_command": [
+        "Visit Homepage Above"
+    ],
+    "test_command": [
+        null
+    ],
+    "repository": {
+        "type": "git",
+        "url": null
+    },
+    "credits": [
+        {
+            "name": "Jimmy White",
+            "url": null
+        }
+    ],
+    "is_github_repos": true,
+    "has_start_command": true,
+    "has_test_command": true
+}
