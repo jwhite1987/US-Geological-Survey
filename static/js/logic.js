@@ -22,23 +22,23 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geo
 
     for (var index = 0; index < earthquakes.length; index++) {
       var color = "";
-        if (earthquakes[index].geometry.coordinates[2] > 90) {
+        if (earthquakes[index].properties.mag > 90) {
           // color = "red";
           color = "rgb(255,0,0)";
         }
-        else if (earthquakes[index].geometry.coordinates[2] > 70) {
+        else if (earthquakes[index].properties.mag > 70) {
           // color = "orange";
           color = "rgb(225,100,0)";
         }
-        else if (earthquakes[index].geometry.coordinates[2] > 50) {
+        else if (earthquakes[index].properties.mag > 50) {
           // color = "rgb(255,218,185)";
           color = "rgb(200,200,0)";
         }
-        else if (earthquakes[index].geometry.coordinates[2] > 30) {
+        else if (earthquakes[index].properties.mag > 30) {
           // color = "lightblue";
           color = "rgb(255,255,0)";
         }
-        else if (earthquakes[index].geometry.coordinates[2] > 10) {
+        else if (earthquakes[index].properties.mag > 10) {
           // color = "yellow";
           color = "rgb(150,255,0)";
         }
