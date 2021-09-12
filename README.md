@@ -1,52 +1,30 @@
-<h1 align="center">
-
-Welcome to Leaflet and the USGS 👋
-
-</h1>
-<p>
-<img alt="Version" src="https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000" />
-
-<a href="None/graphs/commit-activity" target="_blank"><img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" /></a>
+# `US Geological Survey`
 
 
-</p>
+## Project Description
 
-> Using the USGS Earthquake Dataset, collected from a JSON file located on http://earthquake.usgs.gov, create visualizations and data markers using Leaflet.
-### 🏠 [Homepage](https://jimmywhite1987.github.io/Leaflet-and-the-USGS/)
-### ✨ [Demo](https://jimmywhite1987.github.io/Leaflet-and-the-USGS/)
-## Install
-```sh
-None
+- The goal of this project use the United States Geological Survey, which is responsible for providing scientific data about natural hazards, the health of our ecosystems and environment, and the impacts of climate and land-use change, to then build a new set of tools that will allow the visualization of their earthquake data.
+- Using the [USGS GeoJSON Feed](http://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php), a dataset will be picked to then download the corresponding JSON file to use as the primary dataset.
 
-```
+## Languages & Technology Used
 
-## Usage
-```sh
-Visit Homepage Above
+- JSON
+- Leaflet
+- JavaScript
+- HTML
+- CSS
 
-```
+## Project Link
 
-## Run tests
-```sh
-None
+- [Demo](https://jimmywhite1987.github.io/Leaflet-and-the-USGS/)
 
-```
+## Screenshots
+![image](/Images/screenshot1.png)
 
-## Author
-👤 **Jimmy White**
-* Website: http://www.jwhiteanalytics.com
+![image](/Images/screenshot2.png)
 
-* GitHub: [@jimmywhite1987](https://github.com/{github_username})
-* LinkedIn: [@jimmywhite1987](https://linkedin.com/in/{author_linkedin_username})
+![image](/Images/screenshot3.png)
 
-
-
-
-## Show your support
-Give a ⭐️ if this project helped you!
-## Credits
-**[Jimmy White](None)**
-
-
----
-_This README was created with the [markdown-readme-generator](https://github.com/pedroermarinho/markdown-readme-generator)_
+## Links
+- [JWhiteAnalytics.com](https://jwhiteanalytics.com)
+- [LinkedIn](https://www.linkedin.com/in/jimmywhite1987)
