@@ -16,7 +16,7 @@
 
 ## Project Link
 
-- [Demo](https://jimmywhite1987.github.io/Leaflet-and-the-USGS/)
+- [Demo](https://jwhite1987.github.io/Leaflet-and-the-USGS/)
 
 ## Screenshots
 ![image](/Images/screenshot1.png)
@@ -27,6 +27,6 @@
 
 ## Links
 - [JWhiteAnalytics.com](https://jwhiteanalytics.com)
-- [LinkedIn](https://www.linkedin.com/in/jimmywhite1987)
-- [Full Resume](https://jwhiteanalytics.com/JWhite%20Resume.pdf)
+- [LinkedIn](https://www.linkedin.com/in/jwhite1987)
+- [Full Resume](https://jwhiteanalytics.com/JWhite%20DataAnalyst.pdf)
 - [GitLab](https://gitlab.com/jimmywhite1987)
